@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{ name }}</p>
+    <p>{{ age }}</p>
+    <p>{{ todo[0] }}</p>
+    <p>{{ position.x }}</p>
+  </div>
+</body>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    // data 객체에 정의되는 여러 타입의 데이터 형태
+    data: {
+      name: 'Vue', // String
+      age: 3, // Number
+      todo: ['study', 'project'], // List
+      position: { // Object
+        x: 10,
+        y: 5
+      }
+    }
+  })
+</script>
+
+</html>
