@@ -6,18 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Hello World!</title>
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  <!-- JavaScript 파일을 script 태그를 통해 불러옴 : Standalone -->
+  <script src="https://unpkg.com/vue"></script>
+
 </head>
 
 <body>
+
+  <!-- 참조 대상 엘리먼트 -->
   <div id="app">
+
+    <!-- 
+      mustache(중괄호)를 사용해서
+      Vue 인스턴스의 데이터를 출력하는
+      템플릿 문법
+      message: 'Hello World!'
+     -->
     <h1>{{ message }}</h1>
+
   </div>
+
 </body>
 
 <script>
   var app = new Vue({
+    // 아이디가 app인 엘리먼트 참조
     el: '#app',
+    // 문자열을 data 객체 내부의 변수에 할당
     data: {
       message: 'Hello World!'
     }
