@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hello World!</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+</body>
+
+<script>
+  // 라이프 사이클 : Vue 인스턴스의 생성부터 파괴까지의 일련의 과정
+  // Vue 인스턴스를 생성할 때 전달했던 Option을 통해 라이프 사이클 훅 정의
+  // 라이프 사이클 다이어그램은 lifecycle.png를 확인하세요!
+
+  var app = new Vue({
+    el: '#app',
+    beforeCreate: {}, // 인스턴스가 생성되기 전
+    created: {}, // 인스턴스가 생성된 후
+    beforeMount: {}, // 인스턴스가 마운트되기 전
+    mounted: {}, // 인스턴스가 마운트 된 후
+    beforeDestroy: {}, // Vue 인스턴스가 파괴되기 전
+    destroyed: {}, // Vue 인스턴스가 파괴된 후
+    beforeUpdate: {}, // Vue 인스턴스의 데이터가 변경되어 다시 렌더링하기 전
+    updated: {}, // Vue 인스턴스의 데이터가 변경되어 다시 렌더링한 후
+  })
+</script>
+
+</html>
