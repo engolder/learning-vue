@@ -17,6 +17,26 @@
     * HTML 과 CSS, JS 를 포함한 하나의 .vue 파일
     * 컴포넌트 내부는 랭귀지 블럭으로 이루어져있다.
     * 템플릿 블럭, 스타일 블럭, 스크립트 블럭
+  * **한글 지원 공식 가이드**: 이 문서만으로 웹 어플리케이션을 제작할 수 있다. <https://kr.vuejs.org/v2/guide/>
+* Vue.js 설치:
+  * **vue-devtool**: 브라우저를 위한 디버거 <https://github.com/vuejs/vue-devtools#vue-devtools>
+  * Standalone: JavaScript 파일을 HTML 의 script 태그를 통해 불러오는 것
+    * **개발용 버전**: <https://vuejs.org/js/vue.js>
+    * 배포용 버전: <https://vuejs.org/js/vue.min.js>
+  * NPM:
+    * \# 최신 안정화 버전
+    * **$ npm install vue**
+  * CLI:
+    * \# vue-cli 설치
+    * **$ npm install --global vue-cli**
+    * \# "webpack" 템플릿을 이용해서 새 프로젝트 생성
+    * **$ vue init webpack my-project**
+    * \# 의존성을 설치하고 실행하세요!
+    * **$ cd my-project**
+    * **$ npm install**
+    * **$ npm run dev**
+  * Bower:
+    * **$ bower install vue**
 
 ### Vue.js 참고 문헌
 
