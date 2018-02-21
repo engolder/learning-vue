@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-text</title>
+  <title>v-html</title>
 
   <script src="https://unpkg.com/vue"></script>
 
@@ -13,11 +13,10 @@
 
 <body>
   <div id="app">
-    <p>{{ message }}</p>
-    <!-- mustache와 같은 결과가 출력됩니다 -->
-    <p v-text="message"></p>
-    <!-- 다음과 같은 경우에는 Mustache가 필요할 것입니다. -->
-    <p>{{ message }} - {{ value }}</p>
+    <!-- mustache는 태그를 문자열로서 그대로 출력합니다 -->
+    <p>{{ hasTag }}</p>
+    <!-- v-html은 html을 해석합니다 -->
+    <p v-html="hasTag"></p>
   </div>
 </body>
 
@@ -25,8 +24,7 @@
   var app = new Vue({
     el: '#app',
     data: {
-      message: 'Hello World!',
-      value: 100
+      hasTag: '<h1>Hello World!</h1>'
     }
   })
 </script>
