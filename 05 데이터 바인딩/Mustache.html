@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hello World!</title>
+
+  <script src="https://unpkg.com/vue"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <!-- 누르면 value의 값을 증가시키는 메서드가 호출됩니다! -->
+    <button @click="increase">값 증가</button>
+    <!-- {{ }} mustache를 사용하여 객체의 데이터와 바인딩합니다 -->
+    <!-- value 데이터의 값이 변경된다면 다시 템플릿을 렌더링합니다 -->
+    <h1>{{ value }}</h1>
+  </div>
+</body>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      value: 0
+    },
+    methods: {
+      increase() {
+        // 이 객체의 변수의 값을 증가시킵니다
+        this.value++;
+      }
+    },
+  })
+</script>
+
+</html>
