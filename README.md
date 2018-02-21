@@ -1,6 +1,6 @@
 <p align="center"><a href="https://vuejs.org" target="_blank"><img width="100" src="https://vuejs.org/images/logo.png" alt="Vue logo"></a></p>
 
-* 로고 클릭시 Vue js 공식 문서로 이동합니다
+_로고 클릭시 Vue js 공식 문서로 이동합니다_
 
 # learning Vue
 
