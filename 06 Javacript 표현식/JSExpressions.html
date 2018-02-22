@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Javacript exprssions</title>
+
+  <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 데이터 바인딩 내에서 javascript 표현식의 모든 기능을 지원합니다 -->
+    <!-- 하나의 단일 표현식만 포함 가능 -->
+
+    <!-- 간단한 수식 -->
+    <p>{{ number + 1 }}</p>
+    <!-- 삼항 연산자 -->
+    <p>{{ ok ? 'YES' : 'NO' }}</p>
+    <!-- 객체 메서드 -->
+    <p>{{ message.split('').reverse().join('') }}</p>
+  </div>
+</body>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      number: 10,
+      ok: 1 == 1,
+      message: 'Hello'
+    }
+  })
+</script>
+
+</html>
