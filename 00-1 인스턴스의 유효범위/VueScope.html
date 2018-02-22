@@ -7,36 +7,31 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Hello World!</title>
 
-  <!-- JavaScript 파일을 script 태그를 통해 불러옴 : Standalone -->
   <script src="https://unpkg.com/vue"></script>
-
 </head>
 
 <body>
+  <!-- 
+    뷰 인스턴스의 el속성에서 지정한
+    화면 요소에 부착된다
+  -->
 
-  <!-- 참조 대상 엘리먼트 -->
   <div id="app">
+    <!-- 인스턴스의 유효범위 -->
 
-    <!-- 
-      mustache(중괄호)를 사용해서
-      Vue 인스턴스의 데이터를 출력하는
-      템플릿 문법
-      message: 'Hello World!'
-     -->
     <h1>{{ message }}</h1>
 
+    <!-- 인스턴스의 유효범위 -->
   </div>
+
+  <!-- 인스턴스에서 인식할 수 없음 -->
+  {{ message }}
 
 </body>
 
 <script>
-  // Vue 인스턴스 생성
   var app = new Vue({
-    // 미리 정의되어진 el, data속성
-
-    // 아이디가 app인 엘리먼트 참조
     el: '#app',
-    // 문자열을 data 객체 내부의 변수에 할당
     data: {
       message: 'Hello World!'
     }
