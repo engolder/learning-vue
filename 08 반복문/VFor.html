@@ -7,19 +7,57 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>v-for</title>
 
+  <style>
+    ul {
+      border: 1px solid gray;
+      margin: 10px;
+      padding: 10px 30px;
+    }
+  </style>
 </head>
 
 <body>
-  <ul id="app">
-    <!--
-      v-for은 item in items 형태의 구문을 필요로합니다
-      items는 원본데이터 배열,
-      item은 별칭입니다
-    -->
-    <li v-for="item in items">
-      {{ item.message }}
-    </li>
-  </ul>
+  <div id="app">
+
+    <ul>
+      <!--
+          v-for은 item in items 형태의 구문을 필요로합니다
+          (item of items도 가능합니다)
+          items는 원본데이터 배열,
+          item은 별칭입니다
+        -->
+      <li v-for="item in items">
+        {{ item.message }}
+      </li>
+    </ul>
+
+    <ul>
+      <!-- 숫자로 지정할 수도 있습니다 -->
+      <li v-for="item in 10">
+        {{ item }}
+      </li>
+    </ul>
+
+    <ul>
+      <!-- 다음과 같은 형태로 index를 얻을 수도 있습니다 -->
+      <li v-for="(item, index) in items">
+        {{ index }} - {{ item.message }}
+      </li>
+    </ul>
+
+    <ul>
+      <!-- 객체의 속성도 가능합니다 -->
+      <li v-for="value in object">
+        {{ value }}
+      </li>
+    </ul>
+
+    <!-- (value, key) 혹은 (value, key, index)도 가능합니다 -->
+    <div v-for="(value, key, index) in object">
+      {{ index }}. {{ key }} : {{ value }}
+    </div>
+
+  </div>
 </body>
 
 <script src="https://unpkg.com/vue"></script>
@@ -30,7 +68,12 @@
       items: [
         { message: 'Foo' },
         { message: 'Bar' }
-      ]
+      ],
+      object: {
+        firstName: 'John',
+        lastName: 'Doe',
+        age: 30
+      }
     }
   })
 </script>
