@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-show</title>
+
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- 
+      v-show는 v-if와 다르게 항상 렌더링합니다
+      단순히 css에서 display속성을 토글합니다
+      당연하게도 template는 가상요소이기 때문에 항상 렌더링되는
+      v-show와 함께 쓰일 수 없습니다
+     -->
+    <p v-show="value">value의 값이 false더라도 렌더링됩니다!</p>
+
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      value: true
+    }
+  })
+</script>
+
+</html>
