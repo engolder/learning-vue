@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-for</title>
+
+</head>
+
+<body>
+  <ul id="app">
+    <!--
+      v-for은 item in items 형태의 구문을 필요로합니다
+      items는 원본데이터 배열,
+      item은 별칭입니다
+    -->
+    <li v-for="item in items">
+      {{ item.message }}
+    </li>
+  </ul>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      items: [
+        { message: 'Foo' },
+        { message: 'Bar' }
+      ]
+    }
+  })
+</script>
+
+</html>
