@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>template for</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!-- v-if 처럼 v-for 또한 template 가상요소를 사용할 수 있습니다 -->
+      <template v-for="(item, index) in items">
+        <li>{{ item.msg }}</li>
+        <li>{{ index }}</li>
+      </template>
+    </ul>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      items: [
+        { msg: 'Foo' },
+        { msg: 'Bar' }
+      ]
+    }
+  })
+</script>
+
+</html>
