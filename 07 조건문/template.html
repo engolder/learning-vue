@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>template if</title>
+
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- 
+      v-if 디렉티브는 하나의 요소에만 사용가능합니다
+      이를 위해 wrapper역할을 하는 template 가상요소를 사용할 수 있습니다
+     -->
+    <template v-if="number > 100">
+      <h1>저는 숫자가 꽤 큽니다</h1>
+      <p>무려 {{ number }}이나 됩니다</p>
+    </template>
+    <template v-else>
+      <h1>저는 숫자가 작아요</h1>
+      <p>겨우 {{ number }}입니다</p>
+    </template>
+
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      number: 150
+    }
+  })
+</script>
+
+</html>
