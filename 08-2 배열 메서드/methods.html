@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Key</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <button @click="changeLenght">change lenght</button>
+    <button @click="changeItem1">change item1</button>
+    <button @click="changeItem2">change item2</button>
+    <ul>
+      <li v-for="item in items">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      items: [1, 2, 3, 4, 5]
+    },
+    methods: {
+
+      // app.items.length = newLength
+      // 를 사용하게 되면 재렌더링 되지 않는다
+      // 따라서 이렇게 사용
+      // app.items.splice(newLength)
+      changeLenght() {
+        app.items.splice(4);
+      },
+
+      // vm.items[indexOfItem] = newValue
+      // 를 사용하게 되면 재렌더링 되지 않는다
+      // 따라서 이렇게 사용
+      // Vue.set(example1.items, indexOfItem, newValue)
+      // 또는
+      // app.items.splice(indexOfItem, 1, newValue)
+
+      changeItem1() {
+        Vue.set(this.items, 1, 6);
+      },
+      changeItem2() {
+        app.items.splice(2, 1, 7);
+      }
+    },
+  })
+</script>
+
+</html>
