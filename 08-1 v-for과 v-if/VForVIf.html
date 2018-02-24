@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-for과 v-if</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!-- 
+        동일한 노드에 두가지 모두 있다면, v-for가 v-if보다 높은 우선순위를 갖는다
+        v-if는 루프가 반복될 때마다 실행됩니다. 이는 일부 항목만 렌더링 하려는 경우 유용하다
+       -->
+      <li v-for="todo in todos" v-if="!todo.isComplete">
+        {{ todo.content }}
+      </li>
+    </ul>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      todos: [
+        {
+          content: "국어 과제",
+          isComplete: false
+        },
+        {
+          content: "Vue 공부",
+          isComplete: true
+        },
+        {
+          content: "Angular 공부",
+          isComplete: false
+        }
+      ]
+    }
+  })
+</script>
+
+</html>
