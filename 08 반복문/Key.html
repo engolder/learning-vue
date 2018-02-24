@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Key</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!-- 
+        key속성은 Vue가 DOM을 똑똑하게 재사용할 수 있게 돕는다
+        일반적인 key의 값으로는 id를 사용한다
+       -->
+      <li v-for="item in array" :key="item.id">
+        {{ item.name }}
+      </li>
+    </ul>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      array: [
+        { name: 'hello', id: 1 },
+        { name: 'world', id: 2 }
+      ]
+    }
+  })
+</script>
+
+</html>
