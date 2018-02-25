@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>event obejct</title>
+
+  <style>
+    div {padding: 20px;}
+    .outer {background-color: blue;}
+    .middle {background-color: green}
+    .inner {background-color: white}
+  </style>
+</head>
+
+<body>
+  <!--
+    브라우저를 열고 개발자 도구를 확인해 보면,
+    inner div를 클릭하면 버블링이 일어나
+    inner, middle, outer순으로 로그가 찍힌다
+  -->
+  <div id="app">
+    <div class="outer" @click="click1">1
+      <div class="middle" @click="click2">2
+        <div class="inner" @click="click3">3</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      click1: function() {
+        console.log("1-outer");
+      },
+      click2: function() {
+        console.log("2-middle");
+      },
+      click3: function() {
+        console.log("3-inner");
+      }
+    }
+  })
+</script>
+
+</html>
