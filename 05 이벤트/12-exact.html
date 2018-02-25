@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>사용자 정의 키 수식어</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Alt 또는 Shift와 함께 눌린 경우에도 실행된다 -->
+    <button @click.ctrl="onClick">A</button>
+
+    <!-- Ctrl 키만 눌려있을 때만 실행된다 -->
+    <button @click.ctrl.exact="onClick">A</button>
+
+    <!-- 아래 코드는 시스템 키가 눌리지 않은 상태인 경우에만 작동한다 -->
+    <button @click.exact="onClick">A</button>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      onClick: function() {
+        alert('click!');
+      }
+    }
+  })
+</script>
+
+</html>
