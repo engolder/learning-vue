@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>once</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 
+      수식어는 .을 구분자로 해서 여러 개를 체이닝할 수 있다
+      showAlert은 a의 href로 이동하는 액션을 막고 한번만 호출된다
+      그 이후로는 바인딩이 해제된다
+     -->
+    <a href="https://www.google.com" @click.prevent.once="showAlert">Google2</a>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      showAlert: function() {
+        alert('click it again');
+      }
+    }
+  })
+</script>
+
+</html>
