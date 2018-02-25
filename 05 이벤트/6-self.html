@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>self</title>
+
+  <style>
+    div {padding: 20px;}
+    .outer {background-color: blue;}
+    .middle {background-color: green}
+    .inner {background-color: white}
+  </style>
+</head>
+
+<body>
+  <!--
+    self수식어는 전파의 영향을 받지 않는다
+    inner를 클릭해도 middle은 로그에 남지 않는 걸 알 수있다
+    middle 영역을 클릭할 때만 로그에 찍힌다
+  -->
+  <div id="app">
+    <div class="outer" @click="click1">1
+      <div class="middle" @click.self="click2">2
+        <div class="inner" @click="click3">3</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      click1: function() {
+        console.log("1-outer");
+      },
+      click2: function(e) {
+        console.log("2-middle");
+      },
+      click3: function() {
+        console.log("3-inner");
+      }
+    }
+  })
+</script>
+
+</html>
