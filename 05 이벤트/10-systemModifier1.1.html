@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>시스템 키 수식어</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 
+      시스템 키 수식어는 보조수식어다
+      ctrl키를 누르고, 다른 키와 입력될 때 트리거된다
+    -->
+
+    <!-- 아래 메서드가 트리거되려면 space가 눌릴때 ctrl키가 눌려있어야한다 -->
+    <input type="text" @keydown.ctrl.space="showAlert"></input>
+
+    <!-- 아래 메서드가 트리거되려면 div가 클릭될 때 shift키가 눌려있어야한다 -->
+    <div @click.ctrl="showAlert">ctrl + click</div>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      showAlert: function() {
+        alert('이벤트 발생');
+      }
+    }
+  })
+</script>
+
+</html>

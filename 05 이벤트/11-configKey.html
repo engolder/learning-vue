@@ -5,17 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>once</title>
+  <title>사용자 정의 키 수식어</title>
 </head>
 
 <body>
   <div id="app">
-    <!-- 
-      수식어는 .을 구분자로 해서 여러 개를 체이닝할 수 있다
-      showAlert은 a의 href로 이동하는 액션을 막고 한번만 호출된다
-      그 이후로는 바인딩이 해제된다`
-     -->
-    <a href="https://www.google.com" @click.prevent.once="showAlert">Google2</a>
+    <input type="text" @keydown.a="showAlert">
   </div>
 </body>
 
@@ -25,10 +20,12 @@
     el: '#app',
     methods: {
       showAlert: function() {
-        alert('click it again');
+        alert('이벤트 발생');
       }
     }
-  })
+  });
+  // 키 코드의 별칭을 옵션으로 설정
+  Vue.config.keyCodes.a = 65;
 </script>
 
 </html>

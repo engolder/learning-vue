@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>키 수식어</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 
+      keyup.13와 같이 .keycode 수식어를 통해서
+      특정 수식어를 입력할 때만 메서드를 호출하도록 할 수 있다
+      Vue에서는 delete와 같이 자주쓰이는 키들의 알리아스를 제공한다
+    -->
+    <textarea @keydown.delete="preventKey"></textarea>
+
+    <!-- 
+      여러개를 체이싱하면 각 키에 모두 핸들링한다
+     -->
+    <input type="text" @keyup.up.down.left.right="arrowKey">
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      preventKey: function() {
+        // 액션 막기
+        event.preventDefault();
+      },
+      arrowKey: function() {
+        event.target.value= event.key;
+      }
+    }
+  })
+</script>
+
+</html>
