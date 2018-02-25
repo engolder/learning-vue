@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>bubble</title>
+  <title>stop</title>
 
   <style>
     div {padding: 20px;}
@@ -17,13 +17,13 @@
 
 <body>
   <!--
-    브라우저를 열고 개발자 도구를 확인해 보면,
-    inner div를 클릭하면 버블링이 일어나
-    inner, middle, outer순으로 로그가 찍힌다
+    stop 수식어는 이벤트의 전달을 막는다
+    inner를 클릭했을때
+    inner, middle까지만 로그에 남는걸 알 수있다
   -->
   <div id="app">
     <div class="outer" @click="click1">1
-      <div class="middle" @click="click2">2
+      <div class="middle" @click.stop="click2">2
         <div class="inner" @click="click3">3</div>
       </div>
     </div>
@@ -38,8 +38,10 @@
       click1: function() {
         console.log("1-outer");
       },
-      click2: function() {
+      click2: function(e) {
         console.log("2-middle");
+        // .stop수식어는 아래의 역할을 대신수행한다
+        // e.stopPropagation();
       },
       click3: function() {
         console.log("3-inner");
