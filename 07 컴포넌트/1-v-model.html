@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-model</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-model 디렉티브를 사용하여 양방향 데이터 바인딩을 생성할 수 있다 -->
+    <!-- 하지만 한국어와같은 IME가 필요한 언어의 키입력에서 원활하지 않다 -->
+    <input v-model="message" placeholder="여기를 수정해보세요">
+    <p>메시지: {{ message }}</p>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: ''
+    }
+  })
+</script>
+
+</html>
