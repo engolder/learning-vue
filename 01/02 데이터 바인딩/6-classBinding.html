@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>클래스 바인딩</title>
+</head>
+
+<body>
+  <!-- Vue에서 class에 v-bind를 사용할 때 특별한 기능을 제공한다 -->
+
+  <div id="app">
+
+    <div class="static" :class="{ active: isActive, 'text-danger': hasError }">
+      클래스 바인딩 1
+    </div>
+    <!-- 다음과 같이 렌더링된다 -->
+    <!-- class="static active" -->
+
+    <!-- 또한 배열도 사용가능하다 -->
+    <div v-bind:class="[activeClass, errorClass]">
+      클래스 바인딩 2
+    </div>
+    <!-- class="active text-danger" -->
+
+    <!-- 배열 구문내에 객체를 사용하는 경우 -->
+    <div v-bind:class="[{ active: isActive }, errorClass]">
+      클래스 바인딩 3
+    </div>
+    <!-- class="active text-danger" -->
+  </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      isActive: true,
+      hasError: false,
+      activeClass: 'active',
+      errorClass: 'text-danger'
+    }
+  })
+</script>
+
+</html>
