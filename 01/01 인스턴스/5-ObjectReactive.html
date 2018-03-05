@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>속성의 반응성</title>
+</head>
+
+<body>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+  // 데이터 객체
+  var data = { a: 1 }
+
+  // Vue인스턴스에 데이터 객체를 추가
+  var app = new Vue({
+    data: data
+  })
+
+  // 같은 객체를 참조
+  app.a === data.a // => true
+
+  // 인스턴스가 생성될 때만 반응형
+  // 아래는 반응형이아니다
+  app.b = 'hi'
+</script>
+
+</html>
