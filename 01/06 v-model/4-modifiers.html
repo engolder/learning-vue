@@ -16,7 +16,11 @@
       trim: trim(공백제거)
      -->
     <input v-model.lazy="message">
-    <p>메시지: {{ message }}</p>
+    <p>when change: {{ message }}</p>
+    <input v-model.number="num">
+    <p>number + 5: {{ num+5 }}</p>
+    <input v-model.trim="string">
+    <p>trimed message: {{ string }}</p>
   </div>
 </body>
 
@@ -25,7 +29,9 @@
   var app = new Vue({
     el: '#app',
     data: {
-      message: ''
+      message: 'hello',
+      num: 0,
+      string: "   hello     ",
     }
   })
 </script>
