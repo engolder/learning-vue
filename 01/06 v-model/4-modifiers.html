@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-model</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 
+      lazy: 입력 이벤트 때 데이터를 동기화 하지 않고 변경 되었을 때 동기화한다
+      number: 숫자로 형변환
+      trim: trim(공백제거)
+     -->
+    <input v-model.lazy="message">
+    <p>메시지: {{ message }}</p>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: ''
+    }
+  })
+</script>
+
+</html>
