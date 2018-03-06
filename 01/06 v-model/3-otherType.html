@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>여러타입의 input태그 v-model</title>
+</head>
+
+<body>
+  <div id="app">
+    <p> value가 정의되지 않은 하나의 체크박스는 boolean값을 가진다</p>
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{ checked }}</label>
+    <br>
+
+    <p> 여러개의 체크박스는 배열에 요소로 들어간다</p>
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <span>체크한 이름: {{ checkedNames }}</span>
+    <br>
+
+    <p> 라디오는 하나만 체크됨으로 선택된 하나의 radio value를 가진다</p>
+    <input type="radio" id="one" value="One" v-model="picked">
+    <label for="one">One</label>
+    <br>
+    <input type="radio" id="two" value="Two" v-model="picked">
+    <label for="two">Two</label>
+    <br>
+    <span>선택: {{ picked }}</span>
+    <br>
+
+    <p> 셀렉트에선 사용하지 않는 옵션 disabled를 꼭 하나 추가하는 것이 좋다</p>
+    <select v-model="selected1">
+      <option disabled value="">Please select one</option>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    <span>선택함: {{ selected1 }}</span>
+    <br>
+
+    <p> multiple select</p>
+    <select v-model="selected2" multiple>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    <br>
+    <span>선택함: {{ selected2 }}</span>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      checked: false,
+      checkedNames: [],
+      picked: '',
+      selected1: '',
+      selected2: ''
+    }
+  })
+</script>
+
+</html>
