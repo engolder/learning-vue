@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-model</title>
+</head>
+
+<body>
+  <div id="app">
+    <my-component></my-component>
+  </div>
+  
+  <!-- 루트 Vue 인스턴스가 없어서 렌더링되지 못한다 -->
+  <my-component></my-component>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  // 전역으로 컴포넌트를 등록할 때 다음과 같이 작성한다
+  // 인자로 tagname과 option을 정의한다
+  // 컴포넌트 tagname은 W3C규칙을 적용하는 것이 좋다(소문자, 하이픈)
+  Vue.component('my-component', {
+    template: '<div>사용자 정의 컴포넌트 입니다!</div>'
+  })
+
+  // 루트 인스턴스 생성
+  var app = new Vue({
+    el: '#app',
+  })
+</script>
+
+</html>
