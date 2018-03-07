@@ -5,28 +5,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>register global component</title>
+  <title>register local component</title>
 </head>
 
 <body>
   <div id="app">
     <my-component></my-component>
   </div>
-  
-  <!-- 루트 Vue 인스턴스가 없어서 렌더링되지 못한다 -->
-  <my-component></my-component>
 </body>
 
 <script src="https://unpkg.com/vue"></script>
 <script>
-  var template= ('my-component', {
+  // 지역으로 컴포넌트를 등록할 수도 있다
+  myComponent = {
     template: '<div>사용자 정의 컴포넌트 입니다!</div>'
-  })
+  }
 
   // 루트 인스턴스 생성
   var app = new Vue({
     el: '#app',
+    components: {
+      'my-component': myComponent
+    }
   })
+
+  // 또는
+  /*
+    var app = new Vue({
+      el: '#app',
+      component: {
+        'my-component': {
+          template: '<div>사용자 정의 컴포넌트 입니다!</div>'
+        }
+      }
+    })
+  */
 </script>
 
 </html>
