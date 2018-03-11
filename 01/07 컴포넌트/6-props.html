@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>props</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 
+      컴포넌트는 부모와 자식간의 의사소통이 필요하다
+      부모는 자식에게 prop을 이용해 데이터를 전달해주고,
+      자식은 부모에게 event를 통해 의사소통을 한다
+      사진으로 props-events.png를 참고한다
+    -->
+
+    <!-- 아래와 같이 prop에 데이터를 전달한다 -->
+    <!-- HTML속성은 대문자를 구분하지 않는다. 따라서 kebab-case를 사용한다 -->
+    <child my-message="안녕하세요!"></child>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  Vue.component('child', {
+    // props 정의
+    // javascript에서는 camelCase를 사용할 수 있다
+    props: ['myMessage'],
+    // 데이터와 마찬가지로 prop은 템플릿 내부에서 사용할 수 있다
+    template: '<span>{{ myMessage }}</span>'
+  })
+  
+  var app = new Vue({
+    el: '#app',
+  })
+</script>
+
+</html>
