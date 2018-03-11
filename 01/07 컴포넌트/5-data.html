@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>data that must be function</title>
+</head>
+
+<body>
+  <div id="app">
+    <my-message></my-message>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  Vue.component('my-message', {
+    template: '<div>{{ message }}</div>',
+    data: function() {
+      return {
+        message: '템플릿에서는 특별히 데이터를 함수로 작성해야합니다!'
+      }
+    }
+  })
+  
+  var app = new Vue({
+    el: '#app',
+  })
+</script>
+
+</html>
