@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dynamic props</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <input v-model="parentMsg">
+      <br>
+      <!-- v-bind를 사용하여 데이터에 props를 동적으로 바인딩 -->
+      <child v-bind:my-message="parentMsg"></child>
+    </div>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  Vue.component('child', {
+    props: ['myMessage'],
+    template: '<span>{{ myMessage }}</span>'
+  })
+  
+  var app = new Vue({
+    el: '#app',
+    data: {
+      parentMsg: '메시지'
+    }
+  })
+</script>
+
+</html>
