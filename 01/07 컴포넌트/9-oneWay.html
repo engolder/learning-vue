@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>one-way data flow</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 
+      props는 단방향 바인딩을 형성한다
+      덕에 앱의 흐름을 쉽게 파악할 수 있다
+
+      단방향 바인딩이 필요하지 않다고
+      생각할 때는 다음과 같은 경우가있다
+
+      1. 오직 초기값 전달용 prop
+      2. 변경이 필요한 prop
+    -->
+    <one-way :initial-counter="100" size="  BIG  "></one-way>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  Vue.component('one-way', {
+    props: ['initialCounter','size'],
+    data: function () {
+      return { counter: this.initialCounter }
+    },
+    computed: {
+      normalizedSize: function () {
+        return this.size.trim().toLowerCase()
+      }
+    },
+    template: '<p>{{ counter }} - {{ normalizedSize }}</p>'
+  })
+  
+  var app = new Vue({
+    el: '#app'
+  })
+</script>
+
+</html>
