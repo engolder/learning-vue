@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>native event</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 
+      v-on:click 을 컴포넌트에 속성으로 추가하면,
+      자식 컴포넌트에서 click이라는 메서드를 emit해야한다
+      따라서 click.native와 같은 네이티브 수식어를 사용한다
+     -->
+    <my-component v-on:click.native="doTheThing"></my-component>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  Vue.component('my-component', {
+    template: '<p>hello</p>'
+  })
+
+  new Vue({
+    el: '#app',
+    data: {
+      total: 0
+    },
+    methods: {
+      doTheThing: function() {
+        alert('hello');
+      }
+    }
+  })
+</script>
+
+</html>

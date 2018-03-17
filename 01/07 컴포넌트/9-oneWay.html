@@ -5,55 +5,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>event</title>
+  <title>one-way data flow</title>
 </head>
 
 <body>
   <div id="app">
     <!-- 
-      부모 컴포넌트는 자식에게 props로 데이터를 전달하고,
-      자식 컴포넌트는 이벤트를 통해 부모에게 알림을 전달한다
-      부모 컴포넌트는 v-on을 통해서 이벤트를 감지하고 
-      자식 컴포넌트는 emit을 통해서 이벤트를 발생시킨다
-     -->
+      props는 단방향 바인딩을 형성한다
+      덕에 앱의 흐름을 쉽게 파악할 수 있다
 
-    <p>{{ total }}</p>
-    <!-- increment는 사용자 지정 이벤트이다 -->
-    <button-counter v-on:increment="incrementTotal"></button-counter>
-    <button-counter v-on:increment="incrementTotal"></button-counter>
+      단방향 바인딩이 필요하지 않다고
+      생각할 때는 다음과 같은 경우가있다
+
+      1. 오직 초기값 전달용 prop
+      2. 변경이 필요한 prop
+    -->
+    <one-way :initial-counter="100" size="  BIG  "></one-way>
   </div>
 </body>
 
 <script src="https://unpkg.com/vue"></script>
 <script>
-  Vue.component('button-counter', {
-    template: '<button v-on:click="incrementCounter">{{ counter }}</button>',
+  Vue.component('one-way', {
+    props: ['initialCounter','size'],
     data: function () {
-      // 서로다른 객체를 참조한다
-      return {
-        counter: 0
+      return { counter: this.initialCounter }
+    },
+    computed: {
+      normalizedSize: function () {
+        return this.size.trim().toLowerCase()
       }
     },
-    methods: {
-      // incrementCounter 메서드가 실행될 때,
-      // increment이벤트를 부모 컨포넌트에 발생시킨다
-      incrementCounter: function () {
-        this.counter += 1
-        this.$emit('increment')
-      }
-    },
+    template: '<p>{{ counter }} - {{ normalizedSize }}</p>'
   })
-
-  new Vue({
-    el: '#app',
-    data: {
-      total: 0
-    },
-    methods: {
-      incrementTotal: function () {
-        this.total += 1
-      }
-    }
+  
+  var app = new Vue({
+    el: '#app'
   })
 </script>
 
