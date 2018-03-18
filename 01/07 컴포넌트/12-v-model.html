@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>components v-model</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <p>input 태그</p>
+    <p>data: {{ data }}</p>
+    <input v-model="data"/>
+    <!-- 위는 아래와 같다 -->
+    <input
+      :value="data"
+      @input="data = $event.target.value" />
+    
+    <p>컴포넌트</p>
+    <p>myText: {{ myText }}</p>
+    <currency-input v-model="myText"></currency-input>
+    <!-- 위는 아래와 같다 -->
+    <currency-input
+      :value="myText"
+      @input="value => { myText = value }">
+    </currency-input>
+
+  </div>
+</body>
+
+<script type="text/x-template" id="currency-input">
+  <input
+    :value="value"
+    @input="inputText($event.target.value)"></input>
+</script>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  Vue.component('currency-input', {
+    props: ['value'],
+    template: '#currency-input',
+    methods: {
+      inputText: function(value) {
+        // value를 넘기며 input이벤트를 발생시킨다
+        this.$emit('input', value)
+      }
+    }
+  })
+
+  new Vue({
+    el: '#app',
+    data: {
+      data: "hello",
+      myText: "world!",
+    }
+  })
+</script>
+
+</html>
