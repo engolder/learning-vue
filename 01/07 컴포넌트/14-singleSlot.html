@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>single slot</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <div>
+      <h2>나는 부모 컴포넌트의 제목입니다</h2>
+      <my-component>
+        <p>이것은 원본 컨텐츠 입니다.</p>
+      </my-component>
+      <h2>나도 부모 컴포넌트의 제목입니다</h2>
+      <my-component>
+        <!-- 비어있는 콘텐츠 -->
+      </my-component>
+    </div>
+
+  </div>
+</body>
+
+<!-- slot은 대체콘텐츠로 간주된다 -->
+<script type="text/x-template" id="my-template">
+  <div>
+    <slot>
+      제공된 컨텐츠가 없는 경우에만 보실 수 있습니다.
+    </slot>
+  </div>
+</script>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  Vue.component('my-component',{
+    template: '#my-template'
+  })
+
+  new Vue({
+    el: '#app',
+    data: {
+      message: "hello"
+    }
+  })
+</script>
+
+</html>
