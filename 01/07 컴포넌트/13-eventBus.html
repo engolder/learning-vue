@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>event bus</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <comp-a></comp-a>
+    <comp-b></comp-b>
+
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  var bus = new Vue();
+
+  Vue.component('comp-a',{
+    template: '<button @click="clickA">click me!</button>',
+    methods: {
+      clickA: function() {
+        bus.$emit('countNumber',1);
+      }
+    }
+  })
+
+  Vue.component('comp-b',{
+    data() {
+      return {
+        number: 0
+      }
+    },
+    template: '<span>{{ number }}</span>',
+    created() {
+      bus.$on('countNumber',this.add);
+    },
+    methods: {
+      add: function(value) {
+        this.number += value;
+      }
+    }
+  })
+  new Vue({
+    el: '#app'
+  })
+</script>
+
+</html>
