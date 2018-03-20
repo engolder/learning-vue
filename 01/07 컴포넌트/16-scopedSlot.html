@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>scoped slot</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <div class="parent">
+      <child>
+        <!-- 이렇게 하면 template의 자식 요소만 데이터를 전달받는다 -->
+        <!-- slot-scope의 값은 데이터를 저장할 임시 변수이다 -->
+        <template slot-scope="props">
+          <p>hello from parent</p>
+          <p>{{ props.text }}</p>
+        </template>
+      </child>
+    </div>
+
+  </div>
+</body>
+
+<script type="text/x-template" id="my-template">
+  <div class="child">
+    <slot text="hello from child"></slot>
+  </div>
+</script>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  Vue.component('child',{
+    template: '#my-template'
+  })
+
+  new Vue({
+    el: '#app'
+  })
+</script>
+
+</html>
