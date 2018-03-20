@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>named slot</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <!--
+      부모 마크업의 slot속성은
+      자식 마크업의 일치하는 name속성에 배치된다
+      slot속성이 없다면 기본 slot에 배치되고,
+      기본 slot이 없다면 부모 콘텐츠는 삭제된다
+    -->
+
+    <app-layout>
+      <h1 slot="header">여기에 페이지 제목이 위치합니다</h1>
+    
+      <p>메인 컨텐츠의 단락입니다.</p>
+      <p>하나 더 있습니다.</p>
+    
+      <p slot="footer">여기에 연락처 정보입니다.</p>
+    </app-layout>
+
+  </div>
+</body>
+
+<script type="text/x-template" id="my-template">
+  <div class="container">
+    <header>
+      <slot name="header"></slot>
+    </header>
+    <main>
+      <slot></slot>
+    </main>
+    <footer>
+      <slot name="footer"></slot>
+    </footer>
+  </div>
+</script>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  Vue.component('app-layout',{
+    template: '#my-template'
+  })
+
+  new Vue({
+    el: '#app',
+    data: {
+      message: "hello"
+    }
+  })
+</script>
+
+</html>
