@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dynamic component</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- 동적으로 컴포넌트를 트랜지션하려면 예약된 component엘리먼트를 사용한다 -->
+    <component :is="currentView"></component>
+    
+    <input type="radio" id="home" value="home" v-model="currentView" checked>
+    <label for="home">home</label>
+    <br>
+    <input type="radio" id="posts" value="posts" v-model="currentView">
+    <label for="posts">posts</label>
+    <br>
+    <input type="radio" id="archive" value="archive" v-model="currentView">
+    <label for="archive">archive</label>
+
+  </div>
+</body>
+
+<script type="text/x-template" id="my-template">
+  <div class="child">
+    <slot text="hello from child"></slot>
+  </div>
+</script>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      currentView: 'home'
+    },
+    components: {
+      home: { template: "<p>home</p>" },
+      posts: { template: "<p>posts</p>" },
+      archive: { template: "<p>archive</p>" }
+    }
+  })
+</script>
+
+</html>
