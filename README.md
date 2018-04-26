@@ -7,10 +7,12 @@ _로고 클릭시 Vue js 공식 문서로 이동합니다_
 프로젝트에 사용하기 위한 vue.js 를 공부한 기록이 정리된 레포지토리입니다.
 
 * 폴더 내용
-  * 01: HTML파일을 이용한 vue
+  * 01: HTML파일을 이용한 vue의 기본 사용
     * 순서와 목적에 맞게 디렉토리의 .html파일을 확인하세요
-  * 02: Vue CLI를 이용한 vue 
+  * 02: Vue CLI를 이용한 단일 파일 컴포넌트 예제
     * 각 디렉토리의 README.md파일을 확인하세요
+  * 03: Vuex 사용 예제
+    * README.md파일을 확인하세요
 
 ### Vue.js 내용 정리
 
@@ -33,13 +35,14 @@ _로고 클릭시 Vue js 공식 문서로 이동합니다_
     * \# 최신 안정화 버전
     * **$ npm install vue**
   * CLI:
-    * \# vue-cli 설치
+    * \# vue-cli 전역 설치
     * **$ npm install --global vue-cli**
     * \# "webpack" 템플릿을 이용해서 새 프로젝트 생성
     * **$ vue init webpack my-project**
-    * \# 의존성을 설치하고 실행하세요!
     * **$ cd my-project**
+    * \# 의존성 설치
     * **$ npm install**
+    * \# 실행
     * **$ npm run dev**
   * Bower:
     * **$ bower install vue**

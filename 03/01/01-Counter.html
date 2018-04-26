@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>counter</title>
+</head>
+<body>
+  <!-- 아주 간단한 저장소 예제입니다 -->
+
+  <div id="app">
+    <p>{{ count }}</p>
+    <p>
+      <button @click="increment">+</button>
+      <button @click="decrement">-</button>
+    </p>
+  </div>
+
+  <!-- Vue 뒤에 vuex추가 -->
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vuex"></script>
+  <script>
+
+    // 저장소를 만듭니다
+    const store = new Vuex.Store({
+      state: {
+        count: 0
+      },
+      mutations: {
+        increment (state) {
+          state.count++
+        }
+      }
+    })
+
+    new Vue({
+      el: '#app',
+      computed: {
+        count () {
+          // 계산된 속성으로 저장소의 상태를 가져옵니다
+          return store.state.count
+        }
+      },
+      methods: {
+        increment () {
+          // 저장소의 값을 직접 바꿀 수 없습니다
+          store.commit('increment')
+        },
+        decrement () {
+          store.commit('decrement')
+        }
+      }
+    })
+  </script>
+</body>
+</html>
