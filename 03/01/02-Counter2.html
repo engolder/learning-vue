@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>counter</title>
+</head>
+<body>
+  <div id="app">
+    <counter></counter>
+    <button @click="increment">+</button>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vuex"></script>
+  <script>
+
+    const store = new Vuex.Store({
+      state: {
+        count: 0
+      },
+      mutations: {
+        increment (state) {
+          state.count++
+        }
+      }
+    })
+    
+    // Counter 컴포넌트를 만듭니다
+    const Counter = {
+      template: `
+        <p>{{ count }}</p>
+      `,
+      computed: {
+        count () {
+          return this.$store.state.count
+        }
+      }
+    }
+
+    new Vue({
+      el: '#app',
+      // "store" 옵션을 사용하여 저장소를 제공하십시오.
+      // 그러면 모든 하위 컴포넌트에 저장소 인스턴스가 삽입됩니다.
+      store,
+      components: { Counter },
+      methods: {
+        increment () {
+          store.commit('increment')
+        },
+      }
+    })
+  </script>
+</body>
+</html>

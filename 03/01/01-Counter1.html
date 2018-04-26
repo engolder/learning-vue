@@ -11,10 +11,7 @@
 
   <div id="app">
     <p>{{ count }}</p>
-    <p>
-      <button @click="increment">+</button>
-      <button @click="decrement">-</button>
-    </p>
+    <button @click="increment">+</button>
   </div>
 
   <!-- Vue 뒤에 vuex추가 -->
@@ -47,9 +44,6 @@
           // 저장소의 값을 직접 바꿀 수 없습니다
           store.commit('increment')
         },
-        decrement () {
-          store.commit('decrement')
-        }
       }
     })
   </script>
